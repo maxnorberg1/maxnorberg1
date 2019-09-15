@@ -13,6 +13,10 @@ public class homeworkV37 {
 		String namn1 = input.nextLine();
 		
 		
+		System.out.println("Hur gammal är du? ");
+		
+		String age = input.nextLine();
+		
 	}
 
 }
