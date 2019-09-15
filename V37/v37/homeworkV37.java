@@ -27,6 +27,9 @@ public class homeworkV37 {
 		System.out.println("Vad ‰r ditt telefonnummer?");
 		String telenr = input.nextLine();
 		
+		
+		System.out.println("\n\tInformation: " + "\n\tNamn: " + namn1 + "\n\t≈lder: " + age + "\n\tAdress: " + adress + "\n\t" + postnr + " " +  stad + "\n\tTelefon: " + telenr); 
+		
 	}
 
 }
