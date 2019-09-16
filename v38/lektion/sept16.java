@@ -9,20 +9,12 @@ public class sept16 {
 		// villkor
 
 		int age = 0; // initierat variabel
-		int again = 1;
-		
-		Scanner scan = new Scanner(System.in);
-		
-		do {
-			System.out.println("\tVill du testa igen? Skriv (1) om ja, (2) om nej");
-			again = 
-		}
-		while (!(again == 1)); 
+		int svar = 1;
 		
 
 		Scanner input = new Scanner(System.in); // gör det möjligt att få input från konsolen
 
-		if (again) {
+	
 
 			System.out.println("\tFÅR DU KÖRA BIL QUIZ" + "\n\tHUR MÅNGA ÅR HAR DU FYLLT???!");
 			age = input.nextInt();
@@ -37,9 +29,9 @@ public class sept16 {
 			} else {
 				System.out.println("\tpffft!! Ta det lugnt och sätt dig i din bobbycar....");
 			}
-			while (again != age); 
+			
 			
 			
 		}
 	}  
-}
+
