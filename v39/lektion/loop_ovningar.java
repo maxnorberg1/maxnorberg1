@@ -1,9 +1,12 @@
 package lektion;
 
+import java.util.Scanner;
+
 public class loop_ovningar {
 
 	public static void main(String[] args) {
 		
+		Scanner input = new Scanner(System.in);
 		int sum = 0;
 		
 		for (int i = 0; i < 100; i++) {
@@ -20,6 +23,28 @@ public class loop_ovningar {
 		for (int i = 20; i >= 0; i--) {
 			System.out.println(i);
 		}
-	}
+		System.out.println("\nVälj ett positivt heltal under 10.");
+		int tal = input.nextInt();
+		
+		for (int i = 1; i <= 10; i++) {
+			System.out.println(i * tal);
+		}
+		System.out.println("\nSkriv in heltal. Skriv '0' för att få summan av dina heltal."); 
+		int n = 1;
+		int sum2 = 0;
+		boolean writeSum = false;
+		do {
+			n = input.nextInt();
+			sum2 = sum2 + n; 
+			if (n == 0) {
+				writeSum = true;
+			}
+		}
+		while (!writeSum); {
+		System.out.println("\nSumman av dina heltal är: " + sum2); 
+		}
+		
+		
+	}	
 
 }
