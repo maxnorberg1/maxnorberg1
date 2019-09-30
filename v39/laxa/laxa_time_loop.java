@@ -13,7 +13,6 @@ public class laxa_time_loop {
 		for (int i = 1; i <= n; i++) {
 			System.out.println(i + " Abracadabra");
 		}
-
 	}
 
 }
