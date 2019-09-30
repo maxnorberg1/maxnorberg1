@@ -1,3 +1,4 @@
+package laxa;
 import java.util.Scanner;
 
 public class quadrant_selection {
@@ -10,7 +11,7 @@ public class quadrant_selection {
 		int y = input.nextInt();
 		int quad = 0;
 		
-		if (x > 0 && y > 0) {
+		if (x > 0 && y > 0) { 
 			quad = 1;
 		}
 		else if (x < 0 && y > 0) {

@@ -30,8 +30,8 @@ public class modulus {
 		
 		int turn = 0; 
 		
-		while (true) {
-			turn++;
+		while (true) { // skriver ut vems tur det är tills man har gjort det 100 gånger
+			turn++; 
 			
 			if (turn % 3 == 0) {
 				System.out.println("Davids tur");

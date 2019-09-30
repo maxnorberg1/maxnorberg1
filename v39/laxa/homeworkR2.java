@@ -1,4 +1,4 @@
-
+package laxa;
 
 import java.util.Scanner;
 
