@@ -16,8 +16,10 @@ public class two_stones {
 		}
 		else if (n % 2 == 0) {
 			System.out.println("Bob");
-		}
+			
 		
+		}
+		input.close();
 	}
 
 }
