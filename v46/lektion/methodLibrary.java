@@ -13,6 +13,10 @@ public class methodLibrary {
 		System.out.println(pr0grammering("Jag vill bli godkänd i programmering! <3"));
 		System.out.println(svtTime(10,2));
 		System.out.println(work(50,10));
+		System.out.println(velocityToHeight(9.82));
+		System.out.println(sphereVolumeToRadius(20));
+		System.out.println(areaOfCube(10));
+		System.out.println(areaOfCircle(5));
 		
 	}
 	/**
@@ -62,6 +66,19 @@ public class methodLibrary {
 		return Nm;
 	}
 	public static double velocityToHeight(double velocity) {
-		double height = (-16 * Math.pow(height, 2) + (velocity * height) + height);
+		double height = (velocity / 2 );
+		return height;
+	}
+	public static double sphereVolumeToRadius(double Volume) {
+		double radius = (Math.cbrt(3*Volume/(4*Math.PI)));
+		return radius;
+	}
+	public static double areaOfCube(double side) {
+		double area = (side * side);
+		return area;
+	}
+	public static double areaOfCircle(double radius) {
+		double area = (Math.pow(radius, 2) * Math.PI);
+		return area;
 	}
 }
