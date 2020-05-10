@@ -113,9 +113,8 @@ public class hangaGubben {
 		String[] guessWords = { "reddit", "programming", "fruit", "donut" };
 
 		boolean gameOver = false;
-		while (!gameOver) { 
-			
-			
+		while (!gameOver) {
+
 			char[] randomWord = guessWords[random.nextInt(guessWords.length)].toCharArray();
 			int guessAmount = randomWord.length;
 			char[] playerGuess = new char[guessAmount];
@@ -125,10 +124,9 @@ public class hangaGubben {
 			}
 
 			boolean wordIsGuessed = false;
-			
 
 			for (int tries = 15; tries > 0; tries--) {
-				
+
 				System.out.printf("You have %d tries left.\n", tries);
 				System.out.println();
 				// System.out.println("Current guesses: " + tries + "\n");
@@ -137,19 +135,12 @@ public class hangaGubben {
 				System.out.println("Enter a single character");
 				char input = in.nextLine().charAt(0);
 				String wordString = new String(randomWord);
-				String inputString = Character.toString(input); 
-				
-				
-				
-				
-				
+				String inputString = Character.toString(input);
+
 				if (wordString.contains(inputString)) {
 					tries++;
-				} 
-				
-				
-				
-				
+				}
+
 				if (input == '-') {
 					gameOver = true;
 					wordIsGuessed = true;
@@ -157,17 +148,11 @@ public class hangaGubben {
 					for (int u = 0; u < randomWord.length; u++) {
 						if (randomWord[u] == input) {
 							playerGuess[u] = input;
-							
-							
+
 						}
-						
-						
+
 					}
-					
-					
-					
-					
-					
+
 					if (isTheWordGuessed(playerGuess)) {
 						wordIsGuessed = true;
 						System.out.println("THE WORD WAS:");
@@ -176,14 +161,13 @@ public class hangaGubben {
 						break;
 					}
 				}
-				
-				
+
 			}
 			if (!wordIsGuessed)
 				System.out.println("You ran out of guesses!");
 			System.out.println("Do you want to play again? 'Yes' OR 'No'");
 			String anotherGame = in.nextLine();
-			
+
 			if (anotherGame.equals("No"))
 				gameOver = true;
 		}
@@ -194,9 +178,9 @@ public class hangaGubben {
 	public static boolean isTheWordGuessed(char[] array) {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == '_')
-				return false; 
+				return false;
 		}
-		return true; 
+		return true;
 	}
 
 	public static void printArray(char[] array) {
