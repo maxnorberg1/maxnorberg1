@@ -23,8 +23,8 @@ public class hangaGubben {
 	}
 
 	/**
-	 * Metod som innehåller spelets meny.
-	 * Innehåller en trycatch för att spelet inte ska krascha vid felaktig input.
+	 * Metod som innehåller spelets meny. Innehåller en trycatch för att spelet inte
+	 * ska krascha vid felaktig input.
 	 */
 	public static void run() {
 
@@ -62,7 +62,6 @@ public class hangaGubben {
 					case 1:
 
 						singleplayerOrMultiplayer();
-
 
 						break;
 
@@ -112,16 +111,15 @@ public class hangaGubben {
 
 					case 5:
 
-						System.out.println("Do you want to exit the game? \n-- Press '1' to exit game, press '0' to go back to main menu --");
+						System.out.println(
+								"Do you want to exit the game? \n-- Press '1' to exit game, press '0' to go back to main menu --");
 						int endGame = in.nextInt();
-						
 
 						if (endGame == 1) {
 							System.out.println("Game over.");
 							System.exit(0);
 						}
 
-						
 						break;
 
 					}
@@ -134,6 +132,7 @@ public class hangaGubben {
 			}
 		}
 	}
+
 	/**
 	 * Avgör om spelet ska spelas av 1 eller 2 spelare
 	 */
@@ -142,7 +141,7 @@ public class hangaGubben {
 
 		System.out.println("(1) Singleplayer");
 		System.out.println("(2) Multiplayer\n");
-		
+
 		int singleOrMultiChoice = in.nextInt();
 		int gameMode;
 
@@ -160,13 +159,14 @@ public class hangaGubben {
 			System.out.println("Player 2: *** DONT LOOK ***");
 			System.out.println();
 			System.out.println();
-			
+
 			gameMode = 2;
 			game(gameMode);
 			break;
 		}
 
 	}
+
 	/**
 	 * 
 	 * @return genererar ett slumpmässigt valt ord från ordlistan
@@ -177,6 +177,7 @@ public class hangaGubben {
 		return wordList.get((int) (Math.random() * (wordList.size() - 1)) + 1);
 
 	}
+
 	/**
 	 * Läser in en ordlista från en lokal textfil på datorn
 	 */
@@ -195,45 +196,42 @@ public class hangaGubben {
 		}
 
 	}
+
 	/**
 	 * 
-	 * @param gameMode tar emot gameMode (singleplayer/multiplayer).
-	 * Första if satsen tar input från gameMode och bestämmer om spelet ska 
-	 * köras i singleplayer eller multiplayer.
+	 * @param gameMode tar emot gameMode (singleplayer/multiplayer). Första if
+	 *                 satsen tar input från gameMode och bestämmer om spelet ska
+	 *                 köras i singleplayer eller multiplayer.
 	 */
 
 	public static void game(int gameMode) {
 		Scanner in = new Scanner(System.in);
 		Random random = new Random();
-		
 
 		char[] randomWord;
-		
+
 		if (gameMode == 2) {
 			randomWord = in.nextLine().toCharArray();
 			System.out.println("Player 2: Guess!");
 		} else {
-			
+
 			randomWord = difficulty().toCharArray();
 		}
-		
-		
 
 		boolean gameOver = false;
 		while (!gameOver) {
 
-			
-
 			int guessAmount = randomWord.length;
 			char[] playerGuess = new char[guessAmount];
 
-			for (int i = 0; i < playerGuess.length; i++) { // Skriver ut blanka sträck för bokstäver som ännu ej är gissade. 
+			for (int i = 0; i < playerGuess.length; i++) { // Skriver ut blanka sträck för bokstäver som ännu ej är
+															// gissade.
 				playerGuess[i] = '_';
 			}
 
-			boolean wordIsGuessed = false; 
+			boolean wordIsGuessed = false;
 
-			for (int tries = 7; tries > 0; tries--) { // Spelaren har 7 fel-gissningar. 
+			for (int tries = 7; tries > 0; tries--) { // Spelaren har 7 fel-gissningar.
 
 				hangTheMan(tries);
 
@@ -243,12 +241,14 @@ public class hangaGubben {
 				printArray(playerGuess);
 				System.out.println();
 				System.out.println("Enter a single character");
-				char input = in.nextLine().toLowerCase().charAt(0); // Tar den första bokstaven från spelarens input och gör om den 
-																	// till lower case, för att undvika buggar. 
+				char input = in.nextLine().toLowerCase().charAt(0); // Tar den första bokstaven från spelarens input och
+																	// gör om den
+																	// till lower case, för att undvika buggar.
 				String wordString = new String(randomWord);
 				String inputString = Character.toString(input);
 
-				if (wordString.contains(inputString)) { // Om spelarens ordet innehåller bokstaven som spelaren skrev in, ändras inte antalet försök. 
+				if (wordString.contains(inputString)) { // Om spelarens ordet innehåller bokstaven som spelaren skrev
+														// in, ändras inte antalet försök.
 					tries++;
 				}
 
@@ -264,8 +264,9 @@ public class hangaGubben {
 
 					}
 
-					if (isTheWordGuessed(playerGuess)) { // När spelaren har gissat ordet skrivs hela ordet ut och spelaren 
-														 // får ett grattis-meddelande. 
+					if (isTheWordGuessed(playerGuess)) { // När spelaren har gissat ordet skrivs hela ordet ut och
+															// spelaren
+															// får ett grattis-meddelande.
 						wordIsGuessed = true;
 						System.out.println("THE WORD WAS:\n");
 						printArray(playerGuess);
@@ -276,7 +277,7 @@ public class hangaGubben {
 				}
 
 			}
-			if (!wordIsGuessed) { // Om spelaren får slut på gissningar hängs gubben och ordet skrivs ut. 
+			if (!wordIsGuessed) { // Om spelaren får slut på gissningar hängs gubben och ordet skrivs ut.
 				System.out.println("You ran out of guesses!");
 				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + " /|\\  |\r\n" + " / \\  |\r\n"
 						+ "      |\r\n" + "=========");
@@ -285,46 +286,50 @@ public class hangaGubben {
 				System.out.println();
 			}
 
-			try { // Låter spelaren bestämma om hen vill spela igen. 
+			try { // Låter spelaren bestämma om hen vill spela igen.
 				System.out.println("Do you want to play again? 'Yes' OR 'No'");
-			
-			String anotherGame = in.nextLine();
 
-			if (anotherGame.toLowerCase().equals("no")) {
-				gameOver = true;
-				System.out.println("Game over.");
-				System.exit(0);
-			} else {
-				singleplayerOrMultiplayer();
-			}
+				String anotherGame = in.nextLine();
+
+				if (anotherGame.toLowerCase().equals("no")) {
+					gameOver = true;
+					System.out.println("Game over.");
+					System.exit(0);
+				} else {
+					singleplayerOrMultiplayer();
+				}
 			} catch (Exception e) {
 				in.next();
 				System.out.println("** You did not enter a integer. Try again. **");
 
 			}
 		}
-		
+
 	}
+
 	/**
-	 * Metod som låter spelaren välja svårhetsgrad och väljer ord därefter ord efter längd. 
-	 * @return returnerar ett slumpmässigt genererat ord inom spelarens valda svårhetsgrad. 
+	 * Metod som låter spelaren välja svårhetsgrad och väljer ord därefter ord efter
+	 * längd.
+	 * 
+	 * @return returnerar ett slumpmässigt genererat ord inom spelarens valda
+	 *         svårhetsgrad.
 	 */
 	private static String difficulty() {
 		Scanner in = new Scanner(System.in);
-		
+
 		System.out.println("(1) Easy difficulty");
 		System.out.println("(2) Medium difficulty");
 		System.out.println("(3) Hard difficulty");
-		
-		int difficulty = in.nextInt(); 
-		
+
+		int difficulty = in.nextInt();
+
 		boolean acceptableWord = false;
 		String tempWord = "";
-		
+
 		while (acceptableWord == false) {
 			getWordList();
 			tempWord = getRandomWord();
-			
+
 			if (difficulty == 1) {
 				if (tempWord.length() < 4) {
 					acceptableWord = true;
@@ -344,7 +349,8 @@ public class hangaGubben {
 
 	/**
 	 * 
-	 * @param tries skriver ut en ASCII gubbe då antalet försök ändras (variabeln 'tries').
+	 * @param tries skriver ut en ASCII gubbe då antalet försök ändras (variabeln
+	 *              'tries').
 	 */
 	private static void hangTheMan(int tries) {
 
@@ -385,10 +391,12 @@ public class hangaGubben {
 	}
 
 	/**
-	 * Metod som känner av om ordet är gissat. 
-	 * @param array 
-	 * @return om arrayen innehåller '_' är ordet inte gissat. Om arrayen inte innehåller
-	 * '_' är ordet gissat. Metoden returnerar då värdet 'true' på booleanen. 
+	 * Metod som känner av om ordet är gissat.
+	 * 
+	 * @param array
+	 * @return om arrayen innehåller '_' är ordet inte gissat. Om arrayen inte
+	 *         innehåller '_' är ordet gissat. Metoden returnerar då värdet 'true'
+	 *         på booleanen.
 	 */
 	public static boolean isTheWordGuessed(char[] array) {
 		for (int i = 0; i < array.length; i++) {
@@ -399,7 +407,8 @@ public class hangaGubben {
 	}
 
 	/**
-	 * Skriver ut arrayen med mellanrum mellan varje bokstav. 
+	 * Skriver ut arrayen med mellanrum mellan varje bokstav.
+	 * 
 	 * @param array
 	 */
 	public static void printArray(char[] array) {
@@ -411,7 +420,8 @@ public class hangaGubben {
 	}
 
 	/**
-	 * Metod som gör det möjligt att uppdatera en textfil med en String. 
+	 * Metod som gör det möjligt att uppdatera en textfil med en String.
+	 * 
 	 * @param s
 	 * @param f
 	 * @throws IOException
@@ -426,9 +436,8 @@ public class hangaGubben {
 	}
 
 	/**
-	 * Läser in textfilen. 
-	 * Låter användaren skriva in ett ord i ordlistan genom en scanner.
-	 * Kallar på metoden write() för att uppdatera ordlistan. 
+	 * Läser in textfilen. Låter användaren skriva in ett ord i ordlistan genom en
+	 * scanner. Kallar på metoden write() för att uppdatera ordlistan.
 	 */
 	public static void updateTxt() {
 		Scanner in = new Scanner(System.in);
@@ -444,7 +453,8 @@ public class hangaGubben {
 	}
 
 	/**
-	 * Metod som används då användaren ska gå tillbaka i menyer genom att skriva siffran '0'.
+	 * Metod som används då användaren ska gå tillbaka i menyer genom att skriva
+	 * siffran '0'.
 	 */
 	public static void pressZero() {
 		boolean success = false;
